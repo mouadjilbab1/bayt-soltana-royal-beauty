@@ -2,56 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Moroccan Luxury Beauty Salon Design System
+Royal color palette inspired by Moroccan heritage
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - Elegant whites and creams */
+    --background: 30 15% 98%;
+    --foreground: 20 20% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card colors - Soft cream with warm undertones */
+    --card: 35 25% 96%;
+    --card-foreground: 20 20% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 35 25% 96%;
+    --popover-foreground: 20 20% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Royal Gold */
+    --primary: 45 95% 55%;
+    --primary-foreground: 20 20% 15%;
+    --primary-light: 48 90% 65%;
+    --primary-dark: 42 100% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Emerald Green */
+    --secondary: 140 65% 45%;
+    --secondary-foreground: 30 15% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Warm neutral tones */
+    --muted: 35 20% 90%;
+    --muted-foreground: 20 15% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Jade Green */
+    --accent: 160 50% 55%;
+    --accent-foreground: 30 15% 98%;
+
+    /* Additional Moroccan colors */
+    --moroccan-olive: 80 40% 35%;
+    --moroccan-sage: 120 25% 60%;
+    --moroccan-cream: 40 30% 92%;
+    --moroccan-bronze: 30 45% 35%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 20% 85%;
+    --input: 35 20% 88%;
+    --ring: 45 95% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-royal: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--secondary)) 100%);
+    --gradient-emerald: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-cream: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--moroccan-cream)) 100%);
+    --gradient-gold-overlay: linear-gradient(135deg, hsl(var(--primary) / 0.9) 0%, hsl(var(--primary-dark) / 0.8) 100%);
+
+    /* Shadows */
+    --shadow-royal: 0 10px 40px hsl(var(--primary) / 0.2);
+    --shadow-emerald: 0 8px 30px hsl(var(--secondary) / 0.15);
+    --shadow-elegant: 0 4px 20px hsl(20 20% 15% / 0.1);
+    --shadow-moroccan: 0 15px 50px hsl(var(--moroccan-bronze) / 0.2);
+
+    /* Animations */
+    --transition-elegant: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-royal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -101,5 +125,76 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Cairo', 'Arial', sans-serif;
+    direction: rtl;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .font-arabic {
+    font-family: 'Cairo', 'Arial', sans-serif;
+  }
+
+  .font-arabic-display {
+    font-family: 'Amiri', 'Georgia', serif;
+  }
+}
+
+@layer components {
+  /* Moroccan Pattern Divider */
+  .moroccan-divider {
+    @apply relative h-16 overflow-hidden;
+    background: var(--gradient-royal);
+  }
+
+  .moroccan-divider::before {
+    content: '';
+    @apply absolute inset-0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-16.569 13.431-30 30-30v60c-16.569 0-30-13.431-30-30zM0 30c0 16.569 13.431 30 30 30V0C13.431 0 0 13.431 0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Royal Button */
+  .btn-royal {
+    @apply bg-gradient-to-r from-primary via-primary-light to-secondary text-primary-foreground;
+    @apply px-8 py-4 rounded-full font-semibold text-lg;
+    @apply shadow-[var(--shadow-royal)] hover:shadow-[var(--shadow-moroccan)];
+    @apply transition-[var(--transition-elegant)] hover:scale-105;
+    @apply border border-primary/20;
+  }
+
+  /* Emerald Button */
+  .btn-emerald {
+    @apply bg-gradient-to-r from-secondary to-accent text-secondary-foreground;
+    @apply px-6 py-3 rounded-full font-semibold;
+    @apply shadow-[var(--shadow-emerald)] hover:shadow-[var(--shadow-royal)];
+    @apply transition-[var(--transition-royal)] hover:scale-105;
+  }
+
+  /* Card Styles */
+  .card-royal {
+    @apply bg-gradient-to-br from-card to-moroccan-cream;
+    @apply rounded-2xl shadow-[var(--shadow-elegant)];
+    @apply border border-primary/10;
+    @apply transition-[var(--transition-elegant)];
+    @apply hover:shadow-[var(--shadow-royal)] hover:-translate-y-2;
+  }
+
+  /* Hover Effects */
+  .hover-royal {
+    @apply transition-[var(--transition-elegant)];
+    @apply hover:text-primary hover:scale-105;
+  }
+
+  /* Elegant Text Effects */
+  .text-gradient-royal {
+    @apply bg-gradient-to-r from-primary via-primary-light to-secondary;
+    @apply bg-clip-text text-transparent;
+  }
+
+  .text-gradient-emerald {
+    @apply bg-gradient-to-r from-secondary to-accent;
+    @apply bg-clip-text text-transparent;
   }
 }

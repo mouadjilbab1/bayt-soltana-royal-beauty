@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				arabic: ['Cairo', 'Arial', 'sans-serif'],
+				'arabic-display': ['Amiri', 'Georgia', 'serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -26,7 +30,9 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					light: 'hsl(var(--primary-light))',
+					dark: 'hsl(var(--primary-dark))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -51,6 +57,12 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				moroccan: {
+					olive: 'hsl(var(--moroccan-olive))',
+					sage: 'hsl(var(--moroccan-sage))',
+					cream: 'hsl(var(--moroccan-cream))',
+					bronze: 'hsl(var(--moroccan-bronze))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
